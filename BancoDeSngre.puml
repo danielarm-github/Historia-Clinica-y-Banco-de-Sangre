@@ -1,0 +1,94 @@
+@startuml
+
+class Donante {
+  - CI: String
+  - nombre: String
+  - apellidos: String
+  - grupoSanguíneo: String
+  - factorRH: String
+  - dirección: String
+  - observaciones: String
+  
+  + Donante(CI: String, nombre: String, apellidos: String, grupoSanguíneo: String, factorRH: String, dirección: String, observaciones: String)
+  + getCI(): String
+  + setCI(CI: String)
+  + getNombre(): String
+  + setNombre(nombre: String)
+  + getApellidos(): String
+  + setApellidos(apellidos: String)
+  + getGrupoSanguíneo(): String
+  + setGrupoSanguíneo(grupoSanguíneo: String)
+  + getFactorRH(): String
+  + setFactorRH(factorRH: String)
+  + getDirección(): String
+  + setDirección(dirección: String)
+  + getObservaciones(): String
+  + setObservaciones(observaciones: String)
+  + buscarPorCI(CI: String): Donante
+  + añadirDonante()
+  + eliminarDonante()
+  + modificarDonante()
+}
+
+class Donación {
+  - fecha: Date
+  - volumen: Double
+  - códigoBolsa: String
+  - localización: String
+  - CIEmpleado: String
+  
+  + Donación(fecha: Date, volumen: Double, códigoBolsa: String, localización: String, CIEmpleado: String)
+  + getFecha(): Date
+  + setFecha(fecha: Date)
+  + getVolumen(): Double
+  + setVolumen(volumen: Double)
+  + getCódigoBolsa(): String
+  + setCódigoBolsa(códigoBolsa: String)
+  + getLocalización(): String
+  + setLocalización(localización: String)
+  + getCIEmpleado(): String
+  + setCIEmpleado(CIEmpleado: String)
+  + añadirDonación()
+  + eliminarDonación()
+  + modificarDonación()
+}
+
+class Empleado {
+  - CI: String
+  - nombre: String
+  - apellidos: String
+  - dirección: String
+  - cargo: String
+  
+  + Empleado(CI: String, nombre: String, apellidos: String, dirección: String, cargo: String)
+  + getCI(): String
+  + setCI(CI: String)
+  + getNombre(): String
+  + setNombre(nombre: String)
+  + getApellidos(): String
+  + setApellidos(apellidos: String)
+  + getDirección(): String
+  + setDirección(dirección: String)
+  + getCargo(): String
+  + setCargo(cargo: String)
+  + añadirEmpleado()
+  + eliminarEmpleado()
+  + modificarEmpleado()
+}
+
+class BancoDeSangre {
+  - dirección: String
+  
+  + BancoDeSangre(dirección: String)
+  + getDirección(): String
+  + setDirección(dirección: String)
+  + añadirBanco()
+  + eliminarBanco()
+  + modificarBanco()
+}
+
+Donante "1" -- "1..*" Donación
+Donación "1" -- "1" Empleado
+Empleado "1" -- "1..*" BancoDeSangre
+
+@enduml

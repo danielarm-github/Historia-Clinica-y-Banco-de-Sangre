@@ -1,0 +1,76 @@
+@startuml
+
+class Paciente {
+  - CI: String
+  - nombre: String
+  - apellidos: String
+  - fechaNacimiento: Date
+  - sexo: String
+  - peso: Double
+  - estatura: Double
+  - dirección: String
+  
+  + Paciente(CI: String, nombre: String, apellidos: String, fechaNacimiento: Date, sexo: String, peso: Double, estatura: Double, dirección: String)
+  + getCI(): String
+  + setCI(CI: String)
+  + getNombre(): String
+  + setNombre(nombre: String)
+  + getApellidos(): String
+  + setApellidos(apellidos: String)
+  + getFechaNacimiento(): Date
+  + setFechaNacimiento(fechaNacimiento: Date)
+  + getSexo(): String
+  + setSexo(sexo: String)
+  + getPeso(): Double
+  + setPeso(peso: Double)
+  + getEstatura(): Double
+  + setEstatura(estatura: Double)
+  + getDirección(): String
+  + setDirección(dirección: String)
+  + buscarPorCI(CI: String): Paciente
+  + agregarPaciente()
+  + descartarPaciente()
+  + editarPaciente()
+}
+
+class ImagenMédica {
+  - nombreArchivo: String
+  - fecha: Date
+  - tipo: String
+  - comentarios: String
+  
+  + ImagenMédica(nombreArchivo: String, fecha: Date, tipo: String, comentarios: String)
+  + getNombreArchivo(): String
+  + setNombreArchivo(nombreArchivo: String)
+  + getFecha(): Date
+  + setFecha(fecha: Date)
+  + getTipo(): String
+  + setTipo(tipo: String)
+  + getComentarios(): String
+  + setComentarios(comentarios: String)
+  + agregarImagen()
+  + descartarImagen()
+  + editarImagen()
+}
+
+class Enfermedad {
+  - nombre: String
+  - fecha: Date
+  - tratamiento: String
+  
+  + Enfermedad(nombre: String, fecha: Date, tratamiento: String)
+  + getNombre(): String
+  + setNombre(nombre: String)
+  + getFecha(): Date
+  + setFecha(fecha: Date)
+  + getTratamiento(): String
+  + setTratamiento(tratamiento: String)
+  + agregarEnfermedad()
+  + descartarEnfermedad()
+  + editarEnfermedad()
+}
+
+Paciente "1" -- "1..*" ImagenMédica
+Paciente "1" -- "1..*" Enfermedad
+
+@enduml
